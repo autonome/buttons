@@ -1,0 +1,161 @@
+/*
+@import url('https://rsms.me/inter/inter-ui.css');
+*/
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+html {
+  background: #000;
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Inter UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding: 20px 0;
+  color: #fff;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input {
+}
+
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 40px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  min-height: 40px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.label {
+  margin: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.1rem;
+  color: #000;
+}
+
+.preview .label {
+  border: 0.05rem solid yellow;
+  color: #fff;
+}
+
+.buttons .label {
+  border: 0.05rem solid pink;
+  color: #fff;
+}
+
+.controls .label {
+  background-color: white;
+}
+
+.done {
+  padding: 0.5rem;
+}
+
+.inputContainer {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 1em;
+  max-width: 350px;
+  width: calc(100% - 2em);
+  vertical-align: top;
+  overflow: hidden;
+  padding-top: 1em;
+	border-bottom: 0.01rem solid #fff;
+}
+.inputField {
+  position: relative;
+  display: block;
+  padding: 0.8em;
+  width: 60%;
+  border: none;
+  border-radius: 0;
+  background: #f0f0f0;
+  color: #aaa;
+  font-weight: 400;
+  font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-appearance: none;
+  padding: 0.5em 0em 0.25em;
+  width: 100%;
+  background: transparent;
+  color: #9da8b2;
+  font-size: 1.25em;
+}
+.inputLabel {
+  float: right;
+  color: #696969;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  top: 0.95em;
+  font-size: 0.85em;
+  left: 0;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0em;
+  pointer-events: none;
+  /*
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transition: -webkit-transform 0.2s 0.15s, color 1s;
+  transition: transform 0.2s 0.15s, color 1s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  */
+}
+.inputContent {
+  position: relative;
+  display: block;
+  padding: 1.6em 0;
+  width: 100%;
+}
+.inputField:focus + .inputLabel {
+  color: #333;
+  opacity: 1;
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+}
+.inputField:focus {
+  outline: none;
+  stroke: #333;
+  opacity: 0;
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+}

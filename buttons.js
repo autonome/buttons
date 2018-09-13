@@ -4,7 +4,7 @@ TODO
   * user flows
   * data hierarchy
 
-Data Hierarchy
+Data Model
   * activities
     * activity
   * activity
@@ -36,6 +36,7 @@ Use-cases
 
 Wishlist
   * Themes
+  * Extension for inline (cmd) or panel tracking
 
 */
 (async () => {
@@ -58,8 +59,9 @@ Wishlist
   //window.addEventListener('storage', e => console.log(e));
 
   let stateData = await storage.get('state');
+  console.log('stateData', stateData);
 
-  //console.log('stateData', stateData);
+  // blow away db
   //stateData = false;
 
   if (!stateData) {
@@ -106,6 +108,7 @@ Wishlist
 
   async function addToHistory(text) {
     let index = state.history.findIndex(el => el.value == text);
+    console.log('i?', index)
     if (index != -1) {
       state.history[index].count++;
     }
@@ -161,6 +164,7 @@ Wishlist
     container.classList.add('buttons');
     document.querySelector('section').appendChild(container);;
 
+    console.log('s?', state.history)
     state.history.sort((a, b) => b.count - a.count).forEach(key => {
       let button = renderLabel(key.value, container)
       button.addEventListener('click', onButtonClick);
@@ -169,54 +173,26 @@ Wishlist
     return container;
   }
 
-  async function renderControls() {
-    let container = document.createElement('div');
-    container.classList.add('controls');
-
-    // clear button
-    async function clearStack() {
-      state.stack.splice(0);
-      markState();
-    }
-    let reset = renderLabel('clear', container);
-    reset.addEventListener('click', clearStack);
-
-    //let add = renderLabel('done!', rc);
-
-    return container;
-  }
-
   function renderInput() {
     let container = document.createElement('div');
     container.classList.add('inputContainer');
 
-    /*
-    let input = document.createElement('input');
-    input.id = 'input';
-    input.type = 'text';
-    input.classList.add('inputField');
-    input.setAttribute('type', 'text');
-    input.addEventListener('keyup', onKeyup);
-    input.focus();
-    container.appendChild(input);
-
     let label = document.createElement('label');
     label.classList.add('inputLabel');
     label.setAttribute('for', 'input');
+		label.textContent = 'Type a thing...';
     container.appendChild(label);
     
-    let content = document.createElement('span');
-    content.classList.add('inputContent');
-    content.textContent = 'Add something...';
-    label.appendChild(content);
-    */
-
-    /*
-    let done = document.createElement('span');
-    done.innerText = '✓';
-    done.classList.add('done');
-    container.appendChild(done);
-    */
+    let input = document.createElement('input');
+    input.id = 'input';
+    input.type = 'text';
+		input.name = 'input';
+		input.autocomplete = 'off';
+		input.placeholder = 'Type a thing...';
+    input.classList.add('inputField');
+    input.addEventListener('keyup', onKeyup);
+    input.focus();
+    container.appendChild(input);
 
     return container;
   }
@@ -229,7 +205,7 @@ Wishlist
   }
 
   async function onKeyup(e) {
-    let input = document.querySelector('.input');
+    let input = document.querySelector('.inputField');
     if (e.keyCode == 13) {
       await processInput(input.value);
       input.value = '';

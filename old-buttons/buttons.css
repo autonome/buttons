@@ -1,0 +1,115 @@
+* {
+ 	font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+ 	font-weight: 300; 
+  margin: 0; 
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  height: 100vh; 
+  width: 100vw;
+  padding: 0;
+  margin: 0; 
+	/*
+  display: flex; 
+  align-items: flex-start; 
+  justify-content:  flex-start; 
+	*/
+}
+
+html {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 40px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  min-height: 40px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.label {
+  margin: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.1rem;
+  color: #000;
+}
+
+.preview .label {
+  border: 0.05rem solid yellow;
+  color: #fff;
+}
+
+.buttons .label {
+  border: 0.05rem solid pink;
+  color: #fff;
+}
+
+.inputLabel {
+  font-size: 12.5px; 
+  opacity: .8;
+  font-weight: 400; 
+  position: absolute; 
+  top: calc(50% - 7px);
+  left: 0; 
+  opacity: 0; 
+  transition: all .3s ease; 
+}
+.inputField {
+  font-size: 16px; 
+  padding: 20px 0px; 
+  height: 56px; 
+  border: none; 
+  border-bottom: solid 1px rgba(0,0,0,.1); 
+  min-width: 280px; 
+  box-sizing: border-box; 
+  transition: all .3s linear; 
+  font-weight: 400; 
+  -webkit-appearance: none;   
+}
+.inputField:focus {
+  border-bottom: solid 1px rgb(182,157,230);
+  outline: 0; 
+  box-shadow:  0 2px 6px -8px rgba($primary, .45);
+}
+.inputContainer {
+  position: relative; 
+  margin-bottom: 1rem; 
+  margin-top: 1rem; 
+}
+.inputField:not(:placeholder-shown) {
+	padding: 28px 0px 12px 0px; 
+}
+.inputField:not(:placeholder-shown) + .inputLabel {
+	transform: translateY(-10px); 
+	opacity: .7; 
+}
